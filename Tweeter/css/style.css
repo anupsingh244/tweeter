@@ -1,0 +1,115 @@
+﻿body {
+    background-color: #f5f8fa;
+}
+
+.tweetbox {
+	margin: 0 auto;
+	border-radius: 3px 3px 0 0;
+	background-color: #E5F4F9;
+	padding: 10px 12px 45px;
+	width: 700px;
+	border: 1px solid #e6dada;
+	
+	}
+
+textarea {
+    overflow: auto;
+    width: 670px;
+}
+
+/*-------------------------------button*/
+.buttonspace {
+	float: right;
+	margin-top: 5px;
+}
+/*-----------------------Tweets-----------*/
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+li {
+	margin: 0 auto;
+	border-radius: 3px 3px 0 0;
+	background-color: #E5F4F9;
+	padding: 15px 15px 30px;
+	width: 700px;
+	border: 1px solid #e6dada;
+	word-wrap: break-word;
+	border-bottom: 1px solid #ccc;
+	margin-top: 10px;
+	cursor: pointer;
+	box-shadow: 10px 10px 5px #888888;
+	border-radius:4px;
+	
+	
+    
+}
+
+li:first-child{
+-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+            animation: fadein 1s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+}
+li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+}
+.selected {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+}
+.tweetpopup {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	right: 50px;
+	bottom: 50px;
+	background-color: white;
+	color: black;
+	padding: 20px;
+	border: 1px solid #E5F4F9;
+	border-box: 2px 2px 2px grey;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #888888;
+	text-align:center;
+	z-index:9999;
+	 -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+            animation: fadein 1s;
+
+}
+
+.container{
+	margin-top: 20px;
+}
+/*-----------------------tooltip----------*/
+
+.tooltip1 {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip1 .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+   
+}
+
+.tooltip1:hover .tooltiptext {
+    visibility: visible;
+}
