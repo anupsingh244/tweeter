@@ -2,41 +2,38 @@
 <html ng-app="myApp">
 
 <head>
-<meta charset="utf-8">
-<script src="js/angular.1_5.min.js"></script>
-<script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
-<script src="js/myapp.js"></script>
-<script src="js/controller.js"></script>
-<script src="js/tweetservice.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<title>Tweeter</title>
+    <meta charset="utf-8">
+    <script src="js/angular.1_5.min.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <script src="js/myapp.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/tweetservice.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Tweeter</title>
 </head>
 
 <body ng-controller="FrmController as Frm">
-
-<div class="container well">
-	
-		<div class="tweetbox">
-			<form>
-			<textarea ng-model="Frm.txttweet" placeholder="What's in your mind"></textarea>
-			</form>
-			<span>{{140 - Frm.txttweet.length}}</span>	
-			<div class="buttonspace">
-				<button class="btn btn-primary" ng-click="Frm.btn_add();" type="button" ng-disabled="Frm.txttweet.length < 5 || Frm.txttweet.length >= 141  ">
-				Tweet</button></div>
-		</div>
-		<ul>
-			<li ng-click="showDetails = ! showDetails" ng-repeat="comnt in Frm.tweet">
-			{{comnt.name}}
-			<div class="tweetpopup" ng-show="showDetails">
-				<p>{{comnt.name}}</p>
-			</div>
-			<a href="" ng-click="Frm.remove(comnt)" style="float: right;" class="tooltip1"> X <span class="tooltiptext">Delete this tweet</span></a></li>
-		</ul>
-	
-</div>
-
+    <div class="container well">
+        <div class="tweetbox">
+            <form>
+                <textarea ng-model="Frm.txttweet" placeholder="What's in your mind"></textarea>
+            </form>
+            <span>{{140 - Frm.txttweet.length}}</span>
+            <div class="buttonspace">
+                <button class="btn btn-primary" ng-click="Frm.btn_add();" type="button" ng-disabled="Frm.txttweet.length < 5 || Frm.txttweet.length >= 141  ">
+                    Tweet</button>
+            </div>
+        </div>
+        <ul>
+            <li ng-click="showDetails = ! showDetails" ng-repeat="comnt in Frm.tweet">
+                {{comnt.name}}
+                <div class="tweetpopup" ng-show="showDetails">
+                    <p>{{comnt.name}}</p>
+                </div>
+                <a href="" ng-click="Frm.remove(comnt)" style="float: right;" class="tooltip1"> X <span class="tooltiptext">Delete this tweet</span></a></li>
+        </ul>
+    </div>
 </body>
 
 </html>
