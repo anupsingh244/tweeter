@@ -121,6 +121,8 @@ li a {
 }
 .tooltip1:hover .tooltiptext {
     visibility: visible;
+    top: 0px;
+    left: 20px;
 }
 a:hover {
     color: #B50746;
