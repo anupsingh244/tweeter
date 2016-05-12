@@ -95,7 +95,6 @@ li a {
 .tooltip1 {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 .tooltip1 .tooltiptext {
@@ -112,4 +111,11 @@ li a {
 
 .tooltip1:hover .tooltiptext {
     visibility: visible;
+}
+
+a:hover {
+    color: #B50746;
+    transform: scale(1.5);
+    text-decoration: none;
+    transition-duration: 0.5s;
 }

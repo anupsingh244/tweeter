@@ -19,7 +19,7 @@
                     tweet = response.data;
                     //if there is no tweet then it will load some default tweets from JSON file 
                     //and save to localstorage, otherwise load user tweets
-                    if (vm.savedtweet === undefined || vm.savedtweet.length <= 0) {
+                    if (vm.savedtweet.length <= 0) {
                         vm.savedtweet = tweet;
                         return vm.savedtweet;
                     } else {
