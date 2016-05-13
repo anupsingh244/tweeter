@@ -24,7 +24,9 @@ textarea {
     margin-top: 5px;
 }
 
-
+.btn-success{
+	float: right;
+}
 /*-----------------------Tweets-----------*/
 
 ul {
@@ -48,12 +50,10 @@ li {
     border-radius: 4px;
 }
 
-li:first-child {
-    -webkit-animation: fadein 1s;
-    /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 1s;
-    /* Firefox < 16 */
-    animation: fadein 1s;
+li:first-child{
+   
+    /*animation: new-item-animation .3s linear forwards;*/
+    animation:fadein 1s;
 }
 
 @keyframes fadein {
@@ -65,6 +65,18 @@ li:first-child {
     }
 }
 
+/*@keyframes new-item-animation {
+    from {
+        opacity: 0;
+        transform: translateY(-400px);
+}
+ 
+    to {
+        opacity: 1;
+        transform : translateY(0);
+    }
+}
+*/
 
 }
 li a {
@@ -72,11 +84,11 @@ li a {
     color: #000;
     display: block;
 }
-.selected {
+/*.selected {
     background-color: black;
     color: white;
     font-weight: bold;
-}
+}*/
 .tweetpopup {
     position: absolute;
     top: 50px;
@@ -130,3 +142,21 @@ a:hover {
     text-decoration: none;
     transition-duration: 0.5s;
 }
+
+/*.removed-item {
+    animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    /*transform origin is moved to the bottom left corner*/
+   /* transform-origin: 0% 100%;
+}
+ 
+@keyframes removed-item-animation {
+    0% {
+        opacity: 1;
+        transform: rotateZ(0);
+}
+ */
+   /* 100% {
+        opacity: 0;
+        transform: translateY(600px) rotateZ(90deg);
+    }
+}*/

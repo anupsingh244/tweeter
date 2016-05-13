@@ -2,35 +2,39 @@
       'use strict';
       angular
           .module("myApp")
-          .controller('FrmController', FrmController);
-      FrmController.$inject = ['Service'];
-      /* @ngInject */
-      function FrmController(Service) {
+          .controller('TwitrController', TwitrController);
 
+      TwitrController.$inject = ['TwitrService'];
+
+      function TwitrController(TwitrService) {
 
           var vm = this;
-          vm.tweet = [];
+          vm.tweets = [];
 
-          Service.getfunc().then(function(resp) {
-                  vm.tweet = resp;
-              },
-              function(resp) {
-                  console.log('tweets retrieval failed.')
-              });
+          vm.refreshTweet = function() {
+              TwitrService.getTweet().then(function(resp) {
+                      vm.tweets = resp;
+                  },
+                  function(error) {
+                      console.log('tweets retrieval failed.')
+                  });
+          };
 
-
-          vm.btn_add = function() {
-              Service.insert(vm.txttweet).then(function(data) {
-                  vm.tweet = data;
+          vm.addTweet = function() {
+              TwitrService.insert(vm.txttweet).then(function(data) {
+                  vm.tweets = data;
+              }, function(error) {
+                  alert("Tweet Field is blank");
               });
               vm.txttweet = '';
           };
 
-          vm.remove = function(item) {
-              Service.delete(item).then(function(data) {
-                  vm.tweet = data;
+          vm.deleteTweet = function(tweet) {
+              TwitrService.delete(tweet).then(function(data) {
+                  vm.tweets = data;
               });
-          }
-
+          };
       }
+
+
   })();
