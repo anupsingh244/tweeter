@@ -15,25 +15,26 @@
 
 <body ng-controller="TwitrController as tc">
     <div class="container well" ng-init="tc.refreshTweet();">
-        <button class="btn btn-success" ng-click="tc.refreshTweet();">Get Latest Tweets</button>
+        <button class="btn btn-success" ng-click="tc.refreshTweet();">Get Latest Tweets</button>	
         <div class="tweetbox">
             <form>
                 <textarea ng-model="tc.txttweet" placeholder="What's in your mind" autofocus></textarea>
             </form>
             <span>{{140 - tc.txttweet.length}}</span>
             <div class="buttonspace">
-                <button class="btn btn-primary" ng-click="tc.addTweet();" type="button" ng-disabled="tc.txttweet.length < 5 || tc.txttweet.length >= 141 || tc.txttweet =='null'  ">
+                <button class="btn btn-primary" ng-click="tc.addTweet();" type="button" ng-disabled="tc.txttweet.length < 5 || tc.txttweet.length >= 141 || tc.txttweet =='null'" ng-class="{'btn-warning': tc.txttweet.length >= 120, 'btn-danger': tc.txttweet.length >= 141 }">
                     Tweet</button>
             </div>
         </div>
         <ul>
-            <li ng-click="popupTweet =! popupTweet" ng-repeat="tweet in tc.tweets">
-                {{tweet.name}}
+            <li ng-click="popupTweet =! popupTweet" ng-repeat="tweet in tc.tweets" ng-class="{newitem:tc.addclass,removeditem: selected===$index&&tc.remove}">
+               {{tweet.name}}
                 <div class="tweetpopup" ng-show="popupTweet">
                     <p>{{tweet.name}}</p>
                 </div>
-                <a href="" ng-click="tc.deleteTweet(tweet)" style="float: right;" class="tooltip1"> X <span class="tooltiptext">Delete this tweet</span></a></li>
+                <a href="" ng-click="tc.deleteTweet($index);$parent.selected=$index" style="float: right;" class="tooltip1"> X <span class="tooltiptext">Delete this tweet</span></a></li>
         </ul>
+        <div class="counter"> <h4><span class="label label-info">Total Tweets: <b>{{tc.tweetcount}}</b></span></h4></div>
     </div>
 </body>
 

@@ -4,16 +4,26 @@
           .module("myApp")
           .controller('TwitrController', TwitrController);
 
-      TwitrController.$inject = ['TwitrService'];
+      TwitrController.$inject = ['TwitrService','$scope'];
 
-      function TwitrController(TwitrService) {
+      function TwitrController(TwitrService,$scope) {
 
           var vm = this;
           vm.tweets = [];
 
+          vm.swapclass= function(){
+            vm.addclass=true;
+            vm.remove=false;
+            
+          };
+          
+
           vm.refreshTweet = function() {
-              TwitrService.getTweet().then(function(resp) {
-                      vm.tweets = resp;
+           
+            vm.swapclass();
+              TwitrService.getTweet().then(function(data) {
+                      vm.tweets = data;
+                      vm.tweetcount=vm.tweets.length;
                   },
                   function(error) {
                       console.log('tweets retrieval failed.')
@@ -21,19 +31,29 @@
           };
 
           vm.addTweet = function() {
-              TwitrService.insert(vm.txttweet).then(function(data) {
+          
+            vm.swapclass();
+              TwitrService.tweetInsert(vm.txttweet).then(function(data) {
                   vm.tweets = data;
+                  vm.tweetcount=vm.tweets.length;
+                  console.log('date',vm.tweets);
               }, function(error) {
                   alert("Tweet Field is blank");
               });
               vm.txttweet = '';
           };
 
-          vm.deleteTweet = function(tweet) {
-              TwitrService.delete(tweet).then(function(data) {
-                  vm.tweets = data;
-              });
+          vm.deleteTweet = function(tweetindex) {
+              TwitrService.tweetDelete(tweetindex);
+                  vm.tweetcount=vm.tweets.length;
+                 if (vm.addclass==true) {
+                    vm.addclass=false;
+                    vm.remove=true;
+                 };
           };
+
+          
+          
       }
 
 

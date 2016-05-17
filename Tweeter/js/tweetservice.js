@@ -8,10 +8,10 @@
 
     function TwitrService($http, $localStorage, $q) {
 
-        var deferred = $q.defer();
         var vm = this;
 
         vm.getTweet = function() {
+            var deferred = $q.defer();
             if ($localStorage.message == undefined || $localStorage.message.length <= 0) {
                 return $http.get('save.json')
                     .then(function(response) {
@@ -25,7 +25,8 @@
             }
         };
 
-        vm.insert = function(txttweet) {
+        vm.tweetInsert = function(txttweet) {
+            var deferred = $q.defer();
             if (txttweet != '' && txttweet != undefined) {
                 $localStorage.message.unshift({ name: txttweet });
                 deferred.resolve($localStorage.message);
@@ -36,11 +37,11 @@
             return deferred.promise;
         };
 
-        vm.delete = function(tweet) {
-            var index = $localStorage.message.indexOf(tweet)
-            $localStorage.message.splice(index, 1);
-            deferred.resolve($localStorage.message);
-            return deferred.promise;
+        vm.tweetDelete = function(tweetindex) {
+          //  var deferred = $q.defer();
+            $localStorage.message.splice(tweetindex, 1);
+           // deferred.resolve($localStorage.message);
+          //  return deferred.promise;
         };
     }
 })();

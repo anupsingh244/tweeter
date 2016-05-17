@@ -46,14 +46,18 @@ li {
     border-bottom: 1px solid #ccc;
     margin-top: 10px;
     cursor: pointer;
-    box-shadow: 10px 10px 5px #888888;
-    border-radius: 4px;
+    box-shadow: 5px 5px 0px #888888;
+    
 }
 
-li:first-child{
+.counter{
+    margin-left: 220px;
+    margin-top: 8px;
+}
    
-    /*animation: new-item-animation .3s linear forwards;*/
-    animation:fadein 1s;
+.newitem{
+    animation: new-item-animation .3s linear ;
+  /*  animation:fadein 1s;*/
 }
 
 @keyframes fadein {
@@ -64,8 +68,9 @@ li:first-child{
         opacity: 1;
     }
 }
+/*}*/
 
-/*@keyframes new-item-animation {
+@keyframes new-item-animation {
     from {
         opacity: 0;
         transform: translateY(-400px);
@@ -76,19 +81,15 @@ li:first-child{
         transform : translateY(0);
     }
 }
-*/
 
-}
+
+/*}*/   
 li a {
     text-decoration: none;
     color: #000;
     display: block;
 }
-/*.selected {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-}*/
+
 .tweetpopup {
     position: absolute;
     top: 50px;
@@ -143,10 +144,10 @@ a:hover {
     transition-duration: 0.5s;
 }
 
-/*.removed-item {
-    animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+.removeditem {
+    animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) ;
     /*transform origin is moved to the bottom left corner*/
-   /* transform-origin: 0% 100%;
+   transform-origin: 0% 100%;
 }
  
 @keyframes removed-item-animation {
@@ -154,9 +155,11 @@ a:hover {
         opacity: 1;
         transform: rotateZ(0);
 }
- */
-   /* 100% {
+ 
+    100% {
         opacity: 0;
         transform: translateY(600px) rotateZ(90deg);
     }
-}*/
+}
+
+
