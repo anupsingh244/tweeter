@@ -50,6 +50,21 @@ li {
     
 }
 
+.tweetband{
+    margin: 0 auto;
+    border-radius: 3px 3px 0 0;
+    background-color: #E5F4F9;
+    padding: 15px 15px 30px;
+    width: 700px;
+    border: 1px solid #e6dada;
+    word-wrap: break-word;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 0px #888888;
+    
+}
+
 .counter{
     margin-left: 220px;
     margin-top: 8px;

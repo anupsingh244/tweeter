@@ -8,6 +8,7 @@
     <script src="js/myapp.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/tweetservice.js"></script>
+    <script src="js/tweetDirective.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <title>Tweeter</title>
@@ -15,7 +16,7 @@
 
 <body ng-controller="TwitrController as tc">
     <div class="container well" ng-init="tc.refreshTweet();">
-        <button class="btn btn-success" ng-click="tc.refreshTweet();">Get Latest Tweets</button>	
+        <button class="btn btn-success" ng-click="tc.refreshTweet();">Get Latest Tweets</button>
         <div class="tweetbox">
             <form>
                 <textarea ng-model="tc.txttweet" placeholder="What's in your mind" autofocus></textarea>
@@ -26,15 +27,9 @@
                     Tweet</button>
             </div>
         </div>
-        <ul>
-            <li ng-click="popupTweet =! popupTweet" ng-repeat="tweet in tc.tweets" ng-class="{newitem:tc.addclass,removeditem: selected===$index&&tc.remove}">
-               {{tweet.name}}
-                <div class="tweetpopup" ng-show="popupTweet">
-                    <p>{{tweet.name}}</p>
-                </div>
-                <a href="" ng-click="tc.deleteTweet($index);$parent.selected=$index" style="float: right;" class="tooltip1"> X <span class="tooltiptext">Delete this tweet</span></a></li>
-        </ul>
-        <div class="counter"> <h4><span class="label label-info">Total Tweets: <b>{{tc.tweetcount}}</b></span></h4></div>
+        <tweet-directive data='tc.tweets' addclass='tc.addclass' remove='tc.remove' deletetweet='tc.deleteTweet'> </tweet-directive>
+        <div class="counter">
+            <h4><span class="label label-info">Total Tweets: <b>{{tc.tweetcount}}</b></span></h4></div>
     </div>
 </body>
 
