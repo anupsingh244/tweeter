@@ -4,9 +4,9 @@
           .module("myApp")
           .controller('TwitrController', TwitrController);
 
-      TwitrController.$inject = ['TwitrService', '$scope'];
+      TwitrController.$inject = ['TwitrService'];
 
-      function TwitrController(TwitrService, $scope) {
+      function TwitrController(TwitrService) {
 
           var vm = this;
           vm.tweets = [];
@@ -14,12 +14,10 @@
           vm.swapclass = function() {
               vm.addclass = true;
               vm.remove = false;
-
           };
 
 
           vm.refreshTweet = function() {
-
               vm.swapclass();
               TwitrService.getTweet().then(function(data) {
                       vm.tweets = data;
@@ -31,20 +29,19 @@
           };
 
           vm.addTweet = function() {
-
               vm.swapclass();
               TwitrService.tweetInsert(vm.txttweet).then(function(data) {
-                  vm.tweets = data;
-                  vm.tweetcount = vm.tweets.length;
-                  console.log('date', vm.tweets);
+                //  vm.tweets = data.title;
+          //        vm.tweetcount = vm.tweets.length;
+                  console.log('date', data.title);
               }, function(error) {
                   alert("Tweet Field is blank");
               });
               vm.txttweet = '';
+              vm.refreshTweet();
           };
 
           vm.deleteTweet = function(tweetindex) {
-              console.log("tweetindex", tweetindex);
               TwitrService.tweetDelete(tweetindex);
               vm.tweetcount = vm.tweets.length;
               if (vm.addclass == true) {

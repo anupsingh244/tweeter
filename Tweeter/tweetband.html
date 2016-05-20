@@ -1,7 +1,7 @@
 <div class="tweetband" ng-click="popupTweet =! popupTweet" ng-repeat="tweet in data" ng-class="{newitem:addclass,removeditem: selected===$index&&remove}">
-    {{tweet.name}}
+    {{tweet.title}}
     <div class="tweetpopup" ng-show="popupTweet">
-        <p>{{tweet.name}}</p>
+        <p>{{tweet.title}}</p>
     </div>
     <a href="" ng-click="myfunction($index);$parent.selected=$index" style="float: right;" class="tooltip1"> X 
     <span class="tooltiptext">Delete this tweet</span>
