@@ -21,21 +21,7 @@
         };
 
         var urlPath = 'https://api.contentstack.io:443/v2/content_types/tweets/entries';
-        var UID = "";
-        // vm.getTweet = function() {
-        //     var deferred = $q.defer();
-        //     if ($localStorage.message == undefined || $localStorage.message.length <= 0) {
-        //         return $http.get('save.json')
-        //             .then(function(response) {
-        //                 $localStorage.message = response.data;
-        //                 $localStorage.message = $localStorage.message;
-        //                 return $localStorage.message;
-        //             });
-        //     } else {
-        //         deferred.resolve($localStorage.message);
-        //         return deferred.promise;
-        //     }
-        // };
+
         vm.getTweet = function() {
             var deferred = $q.defer();
             var Query = Stack.ContentType("tweets").Query();
@@ -46,7 +32,7 @@
                 .then(function(data) {
                     deferred.resolve(data.entries);
                     console.log("datafromapi", data.entries);
-                    UID=data.entries.uid;
+                    //  UID=data.entries.uid;
                 }, function(err) {
                     deferred.resolve(err);
                     console.error('Error : ', err);
@@ -55,18 +41,7 @@
             return deferred.promise;
         };
 
-
         vm.tweetInsert = function(txttweet) {
-            // var deferred = $q.defer();
-            // if (txttweet != '' && txttweet != undefined) {
-            //     $localStorage.message.unshift({ name: txttweet });
-            //     deferred.resolve($localStorage.message);
-            //     console.log($localStorage.message);
-            // } else {
-            //     deferred.reject($localStorage.message);
-            // }
-            // return deferred.promise;
-
             var deferred = $q.defer();
             var config = {
                 method: 'POST',
@@ -89,19 +64,13 @@
             });
             return deferred.promise;
             console.log(deferred.promise);
-
         };
 
-        vm.tweetDelete = function(tweetindex) {
-            //  var deferred = $q.defer();
-            //  $localStorage.message.splice(tweetindex, 1);
-            // deferred.resolve($localStorage.message);
-            //  return deferred.promise;
-
+        vm.tweetDelete = function(tweetuid) {
             var deferred = $q.defer();
             var config = {
                 method: 'DELETE',
-                url: urlPath + '/' + UID,
+                url: urlPath + '/' + tweetuid,
                 headers: credentials,
             };
             $http(config).then(function successCallback(res) {

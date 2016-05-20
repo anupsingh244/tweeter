@@ -31,8 +31,8 @@
           vm.addTweet = function() {
               vm.swapclass();
               TwitrService.tweetInsert(vm.txttweet).then(function(data) {
-                //  vm.tweets = data.title;
-          //        vm.tweetcount = vm.tweets.length;
+                  //  vm.tweets = data.title;
+                  //        vm.tweetcount = vm.tweets.length;
                   console.log('date', data.title);
               }, function(error) {
                   alert("Tweet Field is blank");
