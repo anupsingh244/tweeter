@@ -3,7 +3,7 @@
     <div class="tweetpopup" ng-show="popupTweet">
         <p>{{tweet.title}}</p>
     </div>
-    <a href="" ng-click="myfunction($index);$parent.selected=$index" style="float: right;" class="tooltip1"> X 
+    <a href="" ng-click="myfunction(tweet.uid);$parent.selected=$index" style="float: right;" class="tooltip1"> X 
     <span class="tooltiptext">Delete this tweet</span>
     </a>
 </div>

@@ -10,14 +10,14 @@
 
         var vm = this;
         var Stack = Contentstack.Stack({
-            'api_key': 'bltc099573d2517cfe4',
-            'access_token': 'blt85cc750cba5639be5599fd93',
+            'api_key': 'blt0624b335c13a74e8',
+            'access_token': 'blt853f379d7018f7287b7d7ac5',
             'environment': ''
         });
 
         var credentials = {
-            "api_key": "bltc099573d2517cfe4",
-            "authtoken": "blt14d843be0fff2e5bc8e5d365"
+            "api_key": "blt0624b335c13a74e8",
+            "authtoken": "blta265c80c31bcc8e98d577c66"
         };
 
         var urlPath = 'https://api.contentstack.io:443/v2/content_types/tweets/entries';

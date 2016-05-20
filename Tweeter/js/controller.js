@@ -33,11 +33,12 @@
               TwitrService.tweetInsert(vm.txttweet).then(function(data) {
                   //  vm.tweets = data.title;
                   //        vm.tweetcount = vm.tweets.length;
-                  console.log('date', data.title);
+                  console.log('dateadded', data.entry.title);
               }, function(error) {
                   alert("Tweet Field is blank");
               });
               vm.txttweet = '';
+           //   vm.tweets.push(data.title.name)
               vm.refreshTweet();
           };
 
@@ -48,6 +49,7 @@
                   vm.addclass = false;
                   vm.remove = true;
               };
+               vm.refreshTweet();
           };
 
 
