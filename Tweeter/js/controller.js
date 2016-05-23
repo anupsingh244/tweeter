@@ -16,11 +16,10 @@
               vm.remove = false;
           };
 
-
           vm.refreshTweet = function() {
               vm.swapclass();
               TwitrService.getTweet().then(function(data) {
-                      vm.tweets = data;
+                      vm.tweets = data.reverse();
                       vm.tweetcount = vm.tweets.length;
                   },
                   function(error) {
@@ -30,31 +29,25 @@
 
           vm.addTweet = function() {
               vm.swapclass();
-              TwitrService.tweetInsert(vm.txttweet).then(function(data) {
-                  //  vm.tweets = data.title;
-                  //        vm.tweetcount = vm.tweets.length;
-                  console.log('dateadded', data.entry.title);
+              TwitrService.tweetInsert(vm.txttweet).then(function(resp) {
+                  vm.tweets.unshift({ title: resp.data.entry.title, uid: resp.data.entry.uid });
+                  vm.tweetcount = vm.tweets.length;
               }, function(error) {
                   alert("Tweet Field is blank");
               });
               vm.txttweet = '';
-           //   vm.tweets.push(data.title.name)
-              vm.refreshTweet();
+
           };
 
-          vm.deleteTweet = function(tweetindex) {
+          vm.deleteTweet = function(tweetindex, index) {
               TwitrService.tweetDelete(tweetindex);
-              vm.tweetcount = vm.tweets.length;
-              if (vm.addclass == true) {
+              if (vm.addclass) {
                   vm.addclass = false;
                   vm.remove = true;
               };
-               vm.refreshTweet();
+              vm.tweets.splice(index, 1);
+              vm.tweetcount = vm.tweets.length;
+              event.stopPropagation();
           };
-
-
-
       }
-
-
   })();

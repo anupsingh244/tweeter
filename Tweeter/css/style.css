@@ -1,4 +1,5 @@
-﻿body {
+﻿@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+body {
     background-color: #f5f8fa;
 }
 
@@ -24,18 +25,14 @@ textarea {
     margin-top: 5px;
 }
 
-.btn-success{
-	float: right;
+.btn-success {
+    float: right;
 }
+
+
 /*-----------------------Tweets-----------*/
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
+.tweetband {
     margin: 0 auto;
     border-radius: 3px 3px 0 0;
     background-color: #E5F4F9;
@@ -47,32 +44,16 @@ li {
     margin-top: 10px;
     cursor: pointer;
     box-shadow: 5px 5px 0px #888888;
-    
 }
 
-.tweetband{
-    margin: 0 auto;
-    border-radius: 3px 3px 0 0;
-    background-color: #E5F4F9;
-    padding: 15px 15px 30px;
-    width: 700px;
-    border: 1px solid #e6dada;
-    word-wrap: break-word;
-    border-bottom: 1px solid #ccc;
-    margin-top: 10px;
-    cursor: pointer;
-    box-shadow: 5px 5px 0px #888888;
-    
-}
-
-.counter{
+.counter {
     margin-left: 220px;
     margin-top: 8px;
 }
-   
-.newitem{
-    animation: new-item-animation .3s linear ;
-  /*  animation:fadein 1s;*/
+
+.newitem {
+    animation: new-item-animation .3s linear;
+    /*  animation:fadein 1s;*/
 }
 
 @keyframes fadein {
@@ -83,26 +64,16 @@ li {
         opacity: 1;
     }
 }
-/*}*/
 
 @keyframes new-item-animation {
     from {
         opacity: 0;
         transform: translateY(-400px);
-}
- 
+    }
     to {
         opacity: 1;
-        transform : translateY(0);
+        transform: translateY(0);
     }
-}
-
-
-/*}*/   
-li a {
-    text-decoration: none;
-    color: #000;
-    display: block;
 }
 
 .tweetpopup {
@@ -122,21 +93,23 @@ li a {
     z-index: 9999;
     -webkit-animation: fadein 1s;
     /* Safari, Chrome and Opera > 12.1 */
-    
     -moz-animation: fadein 1s;
     /* Firefox < 16 */
-    
     animation: fadein 1s;
 }
+
 .container {
     margin-top: 20px;
 }
 
+
 /*-----------------------tooltip----------*/
+
 .tooltip1 {
     position: relative;
     display: inline-block;
 }
+
 .tooltip1 .tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -147,34 +120,38 @@ li a {
     padding: 5px 0;
     position: absolute;
 }
+
 .tooltip1:hover .tooltiptext {
     visibility: visible;
     top: 0px;
     left: 20px;
 }
+
 a:hover {
     color: #B50746;
     transform: scale(1.5);
     text-decoration: none;
     transition-duration: 0.5s;
+    z-index: 99999;
+}
+
+.tweeterid{
+color: #066921;
 }
 
 .removeditem {
-    animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) ;
+    animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94);
     /*transform origin is moved to the bottom left corner*/
-   transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
 }
- 
+
 @keyframes removed-item-animation {
     0% {
         opacity: 1;
         transform: rotateZ(0);
-}
- 
+    }
     100% {
         opacity: 0;
         transform: translateY(600px) rotateZ(90deg);
     }
 }
-
-

@@ -1,9 +1,12 @@
-<div class="tweetband" ng-click="popupTweet =! popupTweet" ng-repeat="tweet in data" ng-class="{newitem:addclass,removeditem: selected===$index&&remove}">
+<div class="tweetband" ng-repeat="tweet in data" ng-click="tweet2Modal(tweet.title)" 
+ng-class="{newitem:addclass,removeditem: selected===$index&&remove}" 
+data-toggle="modal" data-target="#myModal" data-backdrop="static" 
+data-keyboard="false">
     {{tweet.title}}
-    <div class="tweetpopup" ng-show="popupTweet">
-        <p>{{tweet.title}}</p>
-    </div>
-    <a href="" ng-click="myfunction(tweet.uid);$parent.selected=$index" style="float: right;" class="tooltip1"> X 
-    <span class="tooltiptext">Delete this tweet</span>
+    <div ng-include="modal"></div>
+    <a href="" ng-click="invokeDelete(tweet.uid,$index);$parent.selected=$index" 
+    style="float: right;" class="tooltip1"> 
+    	<span class="glyphicon glyphicon-remove"></span>
+        <span class="tooltiptext">Delete this tweet</span>
     </a>
 </div>

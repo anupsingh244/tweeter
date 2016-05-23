@@ -7,30 +7,28 @@
     function tweetDirective() {
 
         return {
-            // bindToController: true,
-            //    controller: TwitrController,
-            //    controllerAs: 'tc',
-            //   link: link,
             restrict: 'E',
-          //  replace: true,
             scope: {
                 data: "=",
                 addclass: "=",
                 remove: "=",
-                deletetweet: "&" //passing a parameterised function to directive is bit tricky and needs to follow these steps
+                deletetweet: "&",
+                modal: "@"
+             //passing a parameterised function to directive is bit tricky and needs to follow these steps
             },
             templateUrl: 'tweetband.html',
             link: function(scope, element, attrs) {
-                var obj = scope.deletetweet();
-                scope.myfunction = function(x) {
-                    console.log("scope function",x);
-                    obj(x);
-                } 
+                var passUid = scope.deletetweet();
+                scope.invokeDelete = function(x, y) {
+                    passUid(x, y);
+                };
+                scope.tweet2Modal = function(z) {
+                    scope.popuptweet = z;
+                };
+
             }
         };
 
 
     }
 })();
-
-

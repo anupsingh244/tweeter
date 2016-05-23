@@ -4,12 +4,13 @@
 <head>
     <meta charset="utf-8">
     <script src="js/angular.1_5.min.js"></script>
-    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
     <script src="js/contentstack-1.0.0.min.js"></script>
     <script src="js/myapp.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/tweetservice.js"></script>
     <script src="js/tweetDirective.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <title>Tweeter</title>
@@ -20,7 +21,7 @@
         <button class="btn btn-success" ng-click="tc.refreshTweet();">Get Latest Tweets</button>
         <div class="tweetbox">
             <form>
-                <textarea ng-model="tc.txttweet" placeholder="What's in your mind" autofocus></textarea>
+                <textarea ng-model="tc.txttweet" placeholder="What's in your mind" autofocus required></textarea>
             </form>
             <span>{{140 - tc.txttweet.length}}</span>
             <div class="buttonspace">
@@ -28,7 +29,7 @@
                     Tweet</button>
             </div>
         </div>
-        <tweet-directive data='tc.tweets' addclass='tc.addclass' remove='tc.remove' deletetweet='tc.deleteTweet'> </tweet-directive>
+        <tweet-directive data='tc.tweets' addclass='tc.addclass' remove='tc.remove' deletetweet='tc.deleteTweet' modal='modal.html'> </tweet-directive>
         <div class="counter">
             <h4><span class="label label-info">Total Tweets: <b>{{tc.tweetcount}}</b></span></h4></div>
     </div>

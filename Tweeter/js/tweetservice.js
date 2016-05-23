@@ -4,9 +4,9 @@
         .module('myApp')
         .service('TwitrService', TwitrService);
 
-    TwitrService.$inject = ['$http', '$localStorage', '$q'];
+    TwitrService.$inject = ['$http','$q'];
 
-    function TwitrService($http, $localStorage, $q) {
+    function TwitrService($http, $q) {
 
         var vm = this;
         var Stack = Contentstack.Stack({
@@ -52,7 +52,6 @@
                     "entry": {
                         "title": txttweet,
                         "url": "/newtweet",
-                        "tweetsdescription": txttweet,
                         "status": false
                     }
                 }
