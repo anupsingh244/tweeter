@@ -13,8 +13,7 @@
                 addclass: "=",
                 remove: "=",
                 deletetweet: "&",
-                modal: "@",
-                limit: "="
+                modal: "@"
                     //passing a parameterised function to directive is bit tricky and needs to follow these steps
             },
             templateUrl: 'tweetbar.html',

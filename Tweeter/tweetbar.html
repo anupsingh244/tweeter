@@ -1,4 +1,4 @@
-<div class="tweetband" ng-repeat="tweet in data | limitTo:limit" ng-click="tweet2Modal(tweet.title,tweet.created_at,tweet.url)" 
+<div class="tweetband" ng-repeat="tweet in data " ng-click="tweet2Modal(tweet.title,tweet.created_at,tweet.url)" 
 ng-class="{newitem:addclass,removeditem: selected===$index&&remove}" 
 data-toggle="modal" data-target="#myModal" data-backdrop="static" 
 data-keyboard="false">

@@ -9,18 +9,19 @@
     function TwitrService($http, $q, authentication) {
 
         var vm = this;
-
+        vm.limit=0;
         vm.getTweet = function() {
+            vm.limit=0;
             var deferred = $q.defer();
             var Query = authentication.stack.ContentType("tweets").Query();
             Query
                 .find()
-                .ascending('created_at')
-                .limit(10)
+                .descending('created_at')
+                .limit(2)
+              //  .skip(2)
                 .then(function(data) {
                     deferred.resolve(data.entries);
                     console.log("datafromapi", data.entries);
-                    //  UID=data.entries.uid;
                 }, function(err) {
                     deferred.resolve(err);
                     console.error('Error : ', err);
@@ -68,6 +69,26 @@
             });
             return deferred.promise;
         };
+
+        vm.loadMore =function(){
+            
+             var deferred = $q.defer();
+            var Query = authentication.stack.ContentType("tweets").Query();
+            Query
+                .find()
+                .descending('created_at')
+                .limit(3)
+               .skip(2 +vm.limit)
+                .then(function(data) {
+                    deferred.resolve(data.entries);
+                    console.log("datafromapi", data.entries);
+                }, function(err) {
+                    deferred.resolve(err);
+                    console.error('Error : ', err);
+                })
+            vm.limit = vm.limit + 3;
+            return deferred.promise;
+        }
     };
 
 })();

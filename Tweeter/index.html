@@ -31,11 +31,13 @@
                     Tweet</button>
             </div>
         </div>
-        <tweet-directive data='tc.tweets' addclass='tc.addclass' remove='tc.remove' deletetweet='tc.deleteTweet' modal='modal.html' limit='tc.limit'> </tweet-directive>
+        <tweet-directive data='tc.tweets' addclass='tc.addclass' remove='tc.remove' deletetweet='tc.deleteTweet' modal='modal.html'> </tweet-directive>
        
         <div class="counter">
             <span class="label label-info">Total Tweets: <b>{{tc.tweetcount}}</b></span>
-             <button  class="btn btn-warning" ng-click="tc.loadMore()">Load More!</button>
+             <button  class="btn btn-warning" ng-click="tc.loadMore()">Load older tweets</button>
+             <div class="spinner" ng-show="tc.loading"></div>
+             <span class="loadmessage" ng-class="{noTweet:tc.noTweet}" > Thats All!!!!!!!</span>
         </div>
     </div>
 </body>

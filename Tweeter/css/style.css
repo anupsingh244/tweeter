@@ -17,7 +17,18 @@ textarea {
     width: 670px;
 }
 
+::-webkit-input-placeholder {
+   color: hsla(91, 17%, 49%, 0.45);
+   font-style: italic;
+}
 
+.noTweet{
+    display: none;
+}
+
+.loadmessage{
+    color: red;
+}
 /*-------------------------------button*/
 
 .buttonspace {
@@ -29,7 +40,15 @@ textarea {
     float: right;
 }
 
+.spinner{
+    background-image: url(../ring-alt.gif);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    margin-bottom: -20px;
 
+}
 /*-----------------------Tweets-----------*/
 
 .tweetband {
@@ -49,6 +68,7 @@ textarea {
 .counter {
     margin-left: 220px;
     margin-top: 8px;
+
 }
 
 .newitem {
