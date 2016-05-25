@@ -13,17 +13,20 @@
                 addclass: "=",
                 remove: "=",
                 deletetweet: "&",
-                modal: "@"
-             //passing a parameterised function to directive is bit tricky and needs to follow these steps
+                modal: "@",
+                limit: "="
+                    //passing a parameterised function to directive is bit tricky and needs to follow these steps
             },
-            templateUrl: 'tweetband.html',
+            templateUrl: 'tweetbar.html',
             link: function(scope, element, attrs) {
                 var passUid = scope.deletetweet();
                 scope.invokeDelete = function(x, y) {
                     passUid(x, y);
                 };
-                scope.tweet2Modal = function(z) {
-                    scope.popuptweet = z;
+                scope.tweet2Modal = function(a, b, c) {
+                    scope.popuptweet = a;
+                    scope.popupcreated = b;
+                    scope.popupurl = c;
                 };
 
             }

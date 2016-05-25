@@ -6,7 +6,7 @@ body {
 .tweetbox {
     margin: 0 auto;
     border-radius: 3px 3px 0 0;
-    background-color: #E5F4F9;
+    background-color: #5AC7E0;
     padding: 10px 12px 45px;
     width: 700px;
     border: 1px solid #e6dada;
@@ -35,7 +35,7 @@ textarea {
 .tweetband {
     margin: 0 auto;
     border-radius: 3px 3px 0 0;
-    background-color: #E5F4F9;
+    background-color: rgba(126, 232, 227, 0.85);
     padding: 15px 15px 30px;
     width: 700px;
     border: 1px solid #e6dada;
@@ -137,6 +137,7 @@ a:hover {
 
 .tweeterid{
 color: #066921;
+font-weight: 600;
 }
 
 .removeditem {
